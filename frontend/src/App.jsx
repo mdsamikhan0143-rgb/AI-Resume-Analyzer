@@ -14,7 +14,7 @@ function App() {
   const normalizeAnalysis = (value) => {
     if (!value) {
       return null;
-    }
+    }+
 
     // Already an object
     if (typeof value === "object") {
@@ -87,7 +87,7 @@ function App() {
 
     try {
       const response = await fetch(
-        "http://127.0.0.1:8000/resume/upload-resume",
+        "https://ai-resume-analyzer-cyq6.onrender.com/resume/history",
         {
           method: "POST",
           body: formData,
