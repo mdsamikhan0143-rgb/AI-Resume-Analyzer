@@ -11,7 +11,7 @@ app.add_middleware(
     allow_origins=[
         "http://localhost:5173",
         "https://ai-resume-analyzer-frontend-n8a5.onrender.com",
-    ],
+],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
