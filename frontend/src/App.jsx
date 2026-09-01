@@ -14,7 +14,7 @@ function App() {
   const normalizeAnalysis = (value) => {
     if (!value) {
       return null;
-    }+
+    }
 
     // Already an object
     if (typeof value === "object") {
@@ -84,28 +84,26 @@ function App() {
 
     const formData = new FormData();
     formData.append("file", file);
+try {
+  const response = await fetch(
+    "https://ai-resume-analyzer-cyq6.onrender.com/resume/upload-resume",
+    {
+      method: "POST",
+      body: formData,
+    }
+  );
 
-    try {
-      const response = await fetch(
-        "https://ai-resume-analyzer-cyq6.onrender.com/resume/history",
-        {
-          method: "POST",
-          body: formData,
-        }
-      );
+  // Read backend response first
+  const data = await response.json();
 
-      // Read backend response first
-      const data = await response.json();
-
-      // Show backend error message
-      if (!response.ok) {
-        throw new Error(
-          data.detail ||
-            data.message ||
-            "Resume analysis failed."
-        );
-      }
-
+  // Show backend error message
+  if (!response.ok) {
+    throw new Error(
+      data.detail ||
+      data.message ||
+      "Resume analysis failed."
+    );
+  }
       console.log("Backend response:", data);
 
       const result =
