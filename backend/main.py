@@ -6,10 +6,12 @@ from routes.resume import resume_router
 
 app = FastAPI()
 
-# 👇 ADD THIS CORS BLOCK HERE
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
+    allow_origins=[
+        "http://localhost:5173",
+        "https://ai-resume-analyzer-frontend-n8a5.onrender.com",
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
